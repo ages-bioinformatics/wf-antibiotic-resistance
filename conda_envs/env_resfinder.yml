@@ -1,0 +1,14 @@
+name: resfinder_test
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+  - r
+dependencies:
+  - blast
+  - git
+  - kma=1.4.9
+  - pip:
+      - numpy
+      - pandas
+      - resfinder==4.4.2

@@ -1,0 +1,12 @@
+name: amrdb
+channels:
+        - conda-forge
+        - bioconda
+        - defaults
+dependencies:
+        - git=2.34.1=pl5262hc120c5b_0
+        - python==3.9
+        - pip:
+                - biopython
+                - git+https://github.com/ages-bioinformatcs/agesamrdb.git
+                - pandas

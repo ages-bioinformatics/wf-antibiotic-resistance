@@ -1,0 +1,6 @@
+.nextflow*
+report.html
+work/
+secretkeys*
+db/
+install_databases/

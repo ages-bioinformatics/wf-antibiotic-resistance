@@ -1,0 +1,14 @@
+name: speciesfinder
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - git
+  - kma=1.4.9
+  - python==3.9
+  - pip:
+      - tabulate==0.7.7
+      - cgecore==1.5.5
+      - pandas<2.0
+      - biopython
