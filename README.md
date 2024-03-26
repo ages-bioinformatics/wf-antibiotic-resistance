@@ -1,4 +1,4 @@
-# Antibiotika Resistenzgen Datenbank Workflow
+# Antibiotics Resistence Gene Datenbase Workflow
 
 This Nextflow-Workflow was developed for *in-silico* prediction of antimicrobial resistance genes.
 The workflow is built arround [ResFinder](https://bitbucket.org/genomicepidemiology/resfinder) 
@@ -81,35 +81,3 @@ This entry expects 7 values per process which are:
 
 The `process_id` should point to a table `process` which has a `status` varchar column that can be set to "finished" in order
  to signal that this compute job has been finished, and will not return in the next SQL-query.
-
-
-
-
-
-
-
-<!--
-### Update Databases
-login on wsps1152 as user seqsphere
-
-`cd /db/`
-
-#### Amrfinder
-
-`conda activate amrfinder`
-
-`amrfinder -u`
-
-copy files from '/proj/seqsphere/conda/mambaforge/envs/amrfinder/share/amrfinderplus/data/2023-04-17.1' to /db/amrfinder
-
-
-#### Resfinder
-rm -r resfinder_db/
-rm -r pointfinder_db/
-rm -r disinfinder_db/
-
-git clone https://bitbucket.org/genomicepidemiology/resfinder_db/
-git clone https://bitbucket.org/genomicepidemiology/pointfinder_db/
-git clone https://bitbucket.org/genomicepidemiology/disinfinder_db/
--->
-
