@@ -1,0 +1,15 @@
+name: plasmidfinder
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+  - r
+dependencies:
+  - biopython
+  - blast
+  - cgecore
+  - kma
+  - pip
+  - plasmidfinder
+  - python
+  - git 

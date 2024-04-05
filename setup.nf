@@ -59,10 +59,23 @@ process create_bakta_db {
                 val("success")
 	script:
 	"""
-	target_dir=\$(dirname ${params.bakta_db}
+	target_dir=\$(dirname ${params.bakta_db})
 	mkdir -p \$target_dir
 	bakta_db download --output \$target_dir --type light
 	""" 
+}
+
+
+process create_mlst_db {
+	label "mlst"
+	input:
+		val(start)
+	output:
+		val("success")
+	script:
+	"""
+	mlst --check
+	"""
 }
 
 
@@ -110,5 +123,39 @@ process create_speciesfinder_db {
 	python INSTALL.py
 	echo "SILVA_138.1_SSUParc" > VERSION
 	"""
+}
+
+process create_plasmidfinder_db {
+    label "plasmidfinder"
+	// input just defined to avoid simultaneous execution of all processes in parallel
+        input:
+                val(start)
+        output:
+                val("success")
+	script:
+	"""
+        rm -rf ${params.plasmidfinder_db}
+        mkdir -p ${params.plasmidfinder_db}
+	git clone https://bitbucket.org/genomicepidemiology/plasmidfinder_db.git ${params.plasmidfinder_db}
+	cd ${params.plasmidfinder_db}
+	PLASMID_DB=\$(pwd)
+	# Install PlasmidFinder database with executable kma_index program
+	python3 INSTALL.py kma_index
+	"""
+}
+
+process create_phispy_db {
+	label "phispy"
+	// input just defined to avoid simultaneous execution of all processes in parallel
+        input:
+                val(start)
+        output:
+                val("success")
+	script:
+	"""
+	echo "hello world"
+	"""
+
+
 }
 
